@@ -1,0 +1,4 @@
+testing program was created by Aliaksei Zayats for Sabre corporation
+
+1) you can type first and second word in main method or in arguments of main (just open the code)
+2) algorithm is not perfect, better algorithm can take much more time of calculations. Graphs can be useful.

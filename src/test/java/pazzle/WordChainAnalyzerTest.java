@@ -23,14 +23,14 @@ public class WordChainAnalyzerTest {
         // arrange
         WordChainAnalyzer analyzer = new WordChainAnalyzer();
         HashSet<String> dictionary = new HashSet<String>();
-        dictionary.add("doly");
+        dictionary.add("doly"); //trap
         dictionary.add("cole"); //expected
-        dictionary.add("code"); //expected
-        dictionary.add("soly");
-        dictionary.add("cony");
-        dictionary.add("caly");
-        dictionary.add("cold");
-        dictionary.add("coly"); //expected
+        dictionary.add("code"); //last word
+        dictionary.add("soly"); //trap
+        dictionary.add("cony"); //trap
+        dictionary.add("caly"); //trap
+        dictionary.add("cold"); //trap
+        dictionary.add("coly"); //first word
 
         //act
         List<String> result = analyzer.analyzeChain("coly", "code", dictionary);
