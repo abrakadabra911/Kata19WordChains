@@ -18,8 +18,8 @@ public class PazzleInitializer {
         }
 
         // copying words to dictionary (same length words)
-        BufferedReader scan = new BufferedReader(new FileReader(new File("C:\\Users\\leha\\Desktop\\wordlist.txt")),
-                40 * 1024);
+        File database = new File(getClass().getClassLoader().getResource("dictionary/wordlist.txt").getFile());
+        BufferedReader scan = new BufferedReader(new FileReader(database),40 * 1024);
         String line;
         firstWord = start;
         lastWord = end;
@@ -31,8 +31,8 @@ public class PazzleInitializer {
             }
         }
         scan.close();
-        // for(String word: dictionary) System.out.println(word); // for checking dictionary
-        // checking if dictionary contains args
+
+        // checking if dictionary contains first and last word
         if(!dictionary.contains(firstWord) || !dictionary.contains(lastWord)) {
             System.out.println("Prosze wprowadzić 2 słowa z listy wordlist.txt");
             System.exit(1);

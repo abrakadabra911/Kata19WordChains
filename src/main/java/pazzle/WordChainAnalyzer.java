@@ -13,13 +13,11 @@ public class WordChainAnalyzer {
         int count = 0;
         while (candidates.size() > 0) {
             if (count++ > 15000) throw new RuntimeException("no result: too long calculation");
-
             String previos = candidates.remove(0);
-
             for(String newWord: dictionary) {
                 if (!chainMap.containsKey(newWord) && isSimilar(previos, newWord)) {
                     chainMap.put(newWord, previos);
-                    if (lastWord.equals(newWord)) return formatWordChain(lastWord, chainMap,firstWord);
+                    if (lastWord.equals(newWord)) return formatWordChain(lastWord, chainMap);
                     candidates.add(newWord);
                 }
             }
@@ -27,7 +25,7 @@ public class WordChainAnalyzer {
         return new ArrayList<String>();
     }
 
-    private List<String> formatWordChain(String lastWord, Map<String, String> chainMap, String firstWord) {
+    private List<String> formatWordChain(String lastWord, Map<String, String> chainMap) {
         List<String> result = new ArrayList<String>();
         result.add(lastWord);
         lastWord = chainMap.get(lastWord);
@@ -35,7 +33,6 @@ public class WordChainAnalyzer {
             result.add(0,lastWord);
             lastWord = chainMap.get(lastWord);
         }
-       // result.add(0, firstWord);
         return result;
     }
 
